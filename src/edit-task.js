@@ -1,5 +1,6 @@
 import { saveTasks, Task, tasks } from "./task";
 import { html } from "lit-html";
+import { router } from "./router";
 
 export class EditTask extends Comment {
   /**
@@ -64,7 +65,7 @@ export class EditTask extends Comment {
       tasks.push(this.task);
     }
     saveTasks();
-    router.setRoute("/");
+    router.go("/");
   }
 
   delete(e) {
@@ -75,6 +76,6 @@ export class EditTask extends Comment {
         saveTasks();
       }
     }
-    router.setRoute("/");
+    router.go("/");
   }
 }

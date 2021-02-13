@@ -2,9 +2,8 @@ class Router {
   init(routes) {
     this.routes = routes;
     window.onpopstate = () => {
-      console.log("Popped state", window.location.pathname);
       this.update();
-    }
+    };
   }
 
   update = () => {

@@ -1,6 +1,7 @@
 import { Component } from "./component";
 import { html } from "lit-html";
 import { tasks } from "./task";
+import { router } from "./router";
 
 export class HomePage extends Component {
   constructor() {
@@ -37,6 +38,6 @@ export class HomePage extends Component {
    * @param {Task} task
    */
   viewTask(task) {
-    window.location = "#/tasks/edit/" + task.name;
+    router.go("/tasks/edit/" + encodeURIComponent(task.name));
   }
 }
