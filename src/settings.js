@@ -7,6 +7,9 @@ export class Settings extends Component {
   }
 
   render() {
-    return html` <h2>Settings</h2> `;
+    return html`
+      <h2>Settings</h2>
+      <p>Here you'll find the settings soon (TM)</p>
+    `;
   }
 }

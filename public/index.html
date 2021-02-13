@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>JaTask</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/img/favicon-32x32.png">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b80034">
 </head>
 <body>
 <div class="header">
-  <a href="#/"><h1>JaTask</h1></a>
-  <a href="#/create" class="create">
+  <a href="/"><h1>JaTask</h1></a>
+  <a href="/create" class="create">
     CREATE
   </a>
 </div>
 <div id="content"></div>
 <div id="bottom-nav">
-  <a href="#/" data-name="home">
+  <a href="/" data-name="home">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
       <path fill-rule="evenodd"
             d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"></path>
     </svg>
     <span>Home</span>
   </a>
-  <a href="#/archive" data-name="archive">
+  <a href="/archive" data-name="archive">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
       <path fill-rule="evenodd"
             d="M2.75 2A1.75 1.75 0 001 3.75v3.5C1 8.216 1.784 9 2.75 9h18.5A1.75 1.75 0 0023 7.25v-3.5A1.75 1.75 0 0021.25 2H2.75zm18.5 1.5H2.75a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h18.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25z"></path>
@@ -32,7 +36,7 @@
     </svg>
     <span>Archive</span>
   </a>
-  <a href="#/settings" data-name="settings">
+  <a href="/settings" data-name="settings">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
       <path fill-rule="evenodd" d="M16 12a4 4 0 11-8 0 4 4 0 018 0zm-1.5 0a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
       <path fill-rule="evenodd"
@@ -41,6 +45,14 @@
     <span>Settings</span>
   </a>
 </div>
-<script src="bundle.js"></script>
+<script src="/bundle.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .catch((error) => {
+        console.log('SW Registration failed with ' + error);
+      });
+  }
+</script>
 </body>
 </html>

@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm dist/*; cp src/index.html src/style.css dist/ && esbuild --minify --bundle src/index.js --outfile=dist/bundle.js",
-    "serve": "cd src; npx http-server",
-    "serve:dist": "npm run build && cd dist; npx http-server"
+    "build": "rm dist/*; cp public/index.html public/style.css dist/ && esbuild --minify --bundle src/index.js --outfile=dist/bundle.js",
+    "watch": "esbuild --watch --bundle src/index.js --outfile=public/bundle.js",
+    "dev": "npm run watch & cd public; live-server --entry-file=index.html",
+    "serve:dist": "npm run build && cd dist; live-server --entry-file=index.html"
   },
   "author": "",
   "license": "ISC",

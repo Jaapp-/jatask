@@ -1,6 +1,5 @@
 import { saveTasks, Task, tasks } from "./task";
 import { html } from "lit-html";
-import { router } from "./app";
 
 export class EditTask extends Comment {
   /**

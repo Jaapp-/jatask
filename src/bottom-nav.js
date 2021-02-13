@@ -1,12 +1,10 @@
-import { Router } from "director/build/director.min";
+import { router } from "./router";
 
 export class BottomNav {
   /**
    * @param {String} selector
-   * @param {Router} router
    */
-  constructor(selector, router) {
-    this.router = router;
+  constructor(selector) {
     this.elem = document.querySelector(selector);
     this.buttons = this.elem.querySelectorAll("a");
   }
