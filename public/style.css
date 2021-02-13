@@ -58,11 +58,11 @@ h6 {
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
-  top: 80px;
+  top: 60px;
   bottom: 60px;
   left: 0;
   right: 0;
-  padding: 10px;
+  padding: 12px;
 }
 
 .task-list {
