@@ -1,0 +1,21 @@
+{
+  "name": "jatask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm dist/*; cp src/index.html src/style.css dist/ && esbuild --minify --bundle src/index.js --outfile=dist/bundle.js",
+    "serve": "cd src; npx http-server",
+    "serve:dist": "npm run build && cd dist; npx http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "director": "^1.2.8",
+    "esbuild": "^0.8.29",
+    "gulp": "^4.0.2",
+    "gulp-esbuild": "^0.3.11",
+    "lit-html": "^1.3.0",
+    "prettier": "^2.2.1"
+  }
+}

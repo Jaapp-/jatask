@@ -1,0 +1,22 @@
+Task app
+
+- Main screen
+    - "You have completed x tasks this week"
+    - List of open tasks
+    - Click to edit task
+
+- Edit task screen:
+    - Set task properties
+    - See/edit descripion
+
+- Archived task screen
+    - Shows all archived tasks based on completion date
+
+- Settings screen
+    - Go to master task list
+    - Set weekly goal
+
+- Master task list screen
+    - List of all tasks ever
+    - Click to edit task
+    - Option to archive
