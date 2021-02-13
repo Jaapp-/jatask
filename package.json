@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm dist/*; cp -r public/* dist/ && esbuild --minify --bundle src/index.js --outfile=dist/bundle.js",
+    "build": "rm -r dist/*; cp -r public/* dist/ && esbuild --minify --bundle src/index.js --outfile=dist/bundle.js",
     "watch": "esbuild --watch --bundle src/index.js --outfile=public/bundle.js",
     "dev": "npm run watch & cd public; live-server --entry-file=index.html",
     "serve:dist": "npm run build && cd dist; live-server --entry-file=index.html"
