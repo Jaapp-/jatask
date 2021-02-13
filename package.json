@@ -8,7 +8,7 @@
     "watch": "esbuild --watch --bundle src/index.js --outfile=public/bundle.js",
     "dev": "npm run watch & cd public; live-server --entry-file=index.html",
     "serve:dist": "npm run build && cd dist; live-server --entry-file=index.html",
-    "lint": "prettier --write src/"
+    "lint": "prettier --write src/ public/*.css public/*.json public/*.html"
   },
   "author": "",
   "license": "ISC",

@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
@@ -11,7 +12,12 @@ body, html {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -49,6 +55,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #content {
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: fixed;
   top: 80px;
   bottom: 60px;
@@ -80,11 +88,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-card .subtitle {
   color: var(--text-secondary);
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 button {
@@ -109,7 +121,9 @@ select {
   padding: 4px 8px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   width: 100%;
 }
 
@@ -153,4 +167,3 @@ input, textarea, select {
 #bottom-nav a.active span {
   font-weight: bold;
 }
-
