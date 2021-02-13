@@ -3,7 +3,7 @@
   "short_name": "JaTask",
   "theme_color": "#b80034",
   "background_color": "#fff",
-  "display": "minimal-ui",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
