@@ -27,11 +27,10 @@ export class HomePage extends Component {
           (t) =>
             html`
               <div class="task-card" data-id="${t.id}">
-                <input
+                <div
                   class="checkbox"
-                  type="checkbox"
                   @click="${(e) => this.checkTask(e, t)}"
-                />
+                ></div>
                 <div @click="${() => this.viewTask(t)}" class="body">
                   <div class="title">${t.name}</div>
                   <div class="subtitle">${t.description}</div>
