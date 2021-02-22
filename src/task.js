@@ -1,4 +1,4 @@
-const TaskType = {
+export const TaskType = {
   MONTHLY: "monthly",
   WEEKLY: "weekly",
   ONCE: "once",
@@ -80,4 +80,8 @@ console.log(tasks);
 
 export const saveTasks = () => {
   localStorage["tasks"] = JSON.stringify(tasks);
+};
+
+export const getTaskById = (taskId) => {
+  return tasks.find((t) => t.id === taskId);
 };

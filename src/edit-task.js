@@ -16,8 +16,8 @@ export class EditTask extends Comment {
 
   render() {
     return html`
-      <h1>${this.isNew ? "Create" : "Edit"} task</h1>
-      <form action="">
+      <h2 class="page-header">${this.isNew ? "Create" : "Edit"} task</h2>
+      <form class="edit-form" @submit="${(e) => this.save(e)}">
         <div class="form-group">
           <div>
             <label for="name">Name</label>
@@ -34,7 +34,9 @@ export class EditTask extends Comment {
           <div>
             <label for="description">Description</label>
           </div>
-          <textarea id="description">${this.task.description}</textarea>
+          <textarea id="description" rows="4">
+${this.task.description}</textarea
+          >
         </div>
         <div class="form-group">
           <div>
@@ -46,9 +48,21 @@ export class EditTask extends Comment {
             <option value="monthly">Monthly</option>
           </select>
         </div>
-        <div class="form-group">
-          <button type="submit" @click=${(e) => this.save(e)}>Save</button>
-          <button @click=${(e) => this.delete(e)}>Delete task</button>
+        <div class="form-group buttons">
+          <button
+            type="button"
+            class="btn-danger"
+            @click=${(e) => this.delete(e)}
+          >
+            Delete task
+          </button>
+          <button
+            class="btn-primary"
+            type="submit"
+            @click=${(e) => this.save(e)}
+          >
+            Save
+          </button>
         </div>
       </form>
     `;

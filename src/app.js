@@ -1,5 +1,5 @@
 import { HomePage } from "./home-page";
-import { Task, tasks } from "./task";
+import { getTaskById, Task, tasks } from "./task";
 import { EditTask } from "./edit-task";
 import { BottomNav } from "./bottom-nav";
 import { Archive } from "./archive";
@@ -25,10 +25,10 @@ const routes = {
     const page = new EditTask({ task: newTask, isNew: true });
     showPage(page);
   },
-  "/tasks/edit/([^/]+)": (taskName) => {
-    const task = tasks.find((t) => t.name === decodeURIComponent(taskName));
+  "/tasks/edit/(\\w+)": (taskId) => {
+    const task = getTaskById(taskId);
     if (!task) {
-      throw new Error(`Couldn't find task '${taskName}'`);
+      throw new Error(`Couldn't find task '${taskId}'`);
     }
     const page = new EditTask({ task: task, isNew: false });
     showPage(page);

@@ -82,9 +82,7 @@ h6 {
     border-radius: 2px;
     cursor: pointer;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: all 0.4s;
+    align-items: stretch;
     max-height: 100px;
 }
 
@@ -93,8 +91,13 @@ h6 {
     padding: 10px 0;
 }
 
-.task-card .checkbox {
-    display: block;
+.task-card .cb-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-card .cb {
     height: 20px;
     width: 20px;
     margin: 10px;
@@ -104,7 +107,7 @@ h6 {
     position: relative;
 }
 
-.task-card.done .checkbox::after {
+.task-card.done .cb::after {
     content: '';
     position: absolute;
     left: 2px;
@@ -116,6 +119,7 @@ h6 {
 }
 
 .task-card.done {
+    transition: all 0.4s;
     background: green !important;
     overflow: hidden;
     max-height: 0;
@@ -129,7 +133,6 @@ h6 {
 
 .task-card .title {
     color: var(--text-primary);
-    margin-bottom: 8px;
     font-size: 16px;
     font-weight: bold;
     overflow: hidden;
@@ -139,15 +142,9 @@ h6 {
 .task-card .subtitle {
     color: var(--text-secondary);
     font-size: 14px;
+    margin-top: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-button {
-    border: 2px solid #ccc;
-    background-color: white;
-    padding: 4px 8px;
-    text-transform: uppercase;
 }
 
 .form-group {
@@ -156,19 +153,30 @@ button {
 
 form label {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 select {
     background-color: white;
     border: 1px solid #ccc;
-    padding: 4px 8px;
+    padding: 6px 12px;
 }
 
 input,
 textarea,
 select {
     width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-group input, .form-group textarea {
+    padding: 6px;
+    border: 1px solid #ccc;
 }
 
 #bottom-nav {
@@ -204,10 +212,52 @@ select {
 }
 
 #bottom-nav a span {
+    color: rgba(255, 255, 255, 0.7);
     font-size: 12px;
     margin-top: 2px;
 }
 
 #bottom-nav a.active span {
     font-weight: bold;
+    color: white;
+}
+
+button {
+    min-width: 70px;
+    border: 2px solid #ccc;
+    background-color: white;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+
+.btn-primary {
+    background-color: var(--primary);
+    border: none;
+    color: rgba(255, 255, 255, 0.98);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #a1002e;
+}
+
+.btn-danger {
+    border: none;
+    font-weight: bold;
+    color: #b80034;
+}
+
+.btn-danger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-danger:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.edit-form .buttons {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,6 +1,6 @@
 import { Component } from "./component";
 import { html } from "lit-html";
-import { saveTasks, tasks } from "./task";
+import { saveTasks, tasks, TaskType } from "./task";
 import { router } from "./router";
 
 export class HomePage extends Component {
@@ -23,21 +23,23 @@ export class HomePage extends Component {
   renderTasks() {
     return html`
       <div class="task-list">
-        ${this.todoTasks().map(
-          (t) =>
-            html`
-              <div class="task-card" data-id="${t.id}">
-                <div
-                  class="checkbox"
-                  @click="${(e) => this.checkTask(e, t)}"
-                ></div>
-                <div @click="${() => this.viewTask(t)}" class="body">
-                  <div class="title">${t.name}</div>
-                  <div class="subtitle">${t.description}</div>
-                </div>
-              </div>
-            `
-        )}
+        ${this.todoTasks().map((t) => this.renderTask(t))}
+      </div>
+    `;
+  }
+
+  renderTask(t) {
+    return html`
+      <div class="task-card" data-id="${t.id}">
+        <div class="cb-c" @click="${(e) => this.checkTask(e, t)}">
+          <div class="cb"></div>
+        </div>
+        <div @click="${() => this.viewTask(t)}" class="body">
+          <div class="title">${t.name}</div>
+          ${t.description
+            ? html`<div class="subtitle">${t.description}</div>`
+            : ""}
+        </div>
       </div>
     `;
   }
@@ -46,7 +48,7 @@ export class HomePage extends Component {
    * @param {Task} task
    */
   viewTask(task) {
-    router.go("/tasks/edit/" + encodeURIComponent(task.name));
+    router.go("/tasks/edit/" + encodeURIComponent(task.id));
   }
 
   /**

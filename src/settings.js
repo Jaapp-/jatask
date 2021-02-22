@@ -25,7 +25,10 @@ export class Settings extends Component {
     for (let i = 0; i < 5; i++) {
       const t = new Task({
         name: randName(),
-        description: `${randName()}, ${randName()} ${randName()}`,
+        description:
+          Math.random() > 0.5
+            ? `${randName()}, ${randName()} ${randName()}`
+            : "",
       });
       tasks.push(t);
     }
