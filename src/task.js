@@ -1,13 +1,32 @@
+const TaskType = {
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+  ONCE: "once",
+};
+
+const idChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const idLength = 10;
+
+const generateId = () => {
+  let id = "";
+  for (let i = 0; i < idLength; i++) {
+    id += idChars.charAt(Math.floor(Math.random() * idChars.length));
+  }
+  return id;
+};
+
 export class Task {
+  id;
   name;
   description;
   type; // 'monthly', 'weekly', 'once'
   createdAt;
 
-  constructor({ name, description, type, createdAt, completions }) {
+  constructor({ id, name, description, type, createdAt, completions }) {
+    this.id = id || generateId();
     this.name = name || "";
     this.description = description || "";
-    this.type = type || "oneshot";
+    this.type = type || TaskType.ONCE;
     this.createdAt = createdAt ? new Date(createdAt) : new Date();
     this.completions = completions ? completions.map((c) => new Date(c)) : [];
   }
@@ -22,17 +41,17 @@ export class Task {
     if (!lastCompletion) return false;
     const now = new Date();
     switch (this.type) {
-      case "monthly":
+      case TaskType.MONTHLY:
         return (
           lastCompletion.getMonth() === now.getMonth() &&
           lastCompletion.getFullYear() === now.getFullYear()
         );
-      case "weekly":
+      case TaskType.WEEKLY:
         return (
           lastCompletion.getFullYear() === now.getFullYear() &&
           lastCompletion.getWeek() === now.getWeek()
         );
-      case "once":
+      case TaskType.ONCE:
         return true;
     }
   }
@@ -44,6 +63,10 @@ export class Task {
     if (this.completions.length === 0) return null;
     return this.completions[this.completions.length - 1];
   }
+
+  complete() {
+    this.completions.push(new Date());
+  }
 }
 
 const storedTaskData = localStorage.getItem("tasks");
@@ -53,6 +76,7 @@ const taskData = storedTaskData ? JSON.parse(storedTaskData) : [];
  * @type {Task[]}
  */
 export const tasks = taskData.map((t) => new Task(t));
+console.log(tasks);
 
 export const saveTasks = () => {
   localStorage["tasks"] = JSON.stringify(tasks);
