@@ -1,8 +1,9 @@
-import { saveTasks, Task, tasks } from "./task";
+import { saveTasks, Task, tasks } from "../model/task";
 import { html } from "lit-html";
-import { router } from "./router";
+import { router } from "../router";
+import { Component } from "./component";
 
-export class EditTask extends Comment {
+export class EditTask extends Component {
   /**
    * @param {Task} task
    * @param {boolean} isNew
@@ -12,11 +13,11 @@ export class EditTask extends Comment {
     console.log(task);
     this.task = task;
     this.isNew = isNew;
+    this.name = "Edit " + task.name;
   }
 
   render() {
     return html`
-      <h2 class="page-header">${this.isNew ? "Create" : "Edit"} task</h2>
       <form class="edit-form" @submit="${(e) => this.save(e)}">
         <div class="form-group">
           <div>

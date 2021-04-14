@@ -1,6 +1,6 @@
 import { Component } from "./component";
 import { html } from "lit-html";
-import { saveTasks, Task, tasks } from "./task";
+import { saveTasks, Task, tasks } from "../model/task";
 
 const randName = () => {
   return Math.random().toString(36).substr(2, 5);
@@ -8,12 +8,11 @@ const randName = () => {
 
 export class Settings extends Component {
   constructor() {
-    super("settings");
+    super("Settings");
   }
 
   render() {
     return html`
-      <h2>Settings</h2>
       <p>Here you'll find the settings soon (TM)</p>
       <button @click="${() => this.createSampleTasks()}">
         Create sample tasks

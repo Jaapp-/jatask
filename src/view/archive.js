@@ -1,10 +1,10 @@
 import { Component } from "./component";
 import { html } from "lit-html";
-import { tasks } from "./task";
+import { tasks } from "../model/task";
 
 export class Archive extends Component {
   constructor() {
-    super("archive");
+    super("Archive");
   }
 
   archivedTasks() {
@@ -12,7 +12,7 @@ export class Archive extends Component {
   }
 
   render() {
-    return html`<h2 class="page-header">Archive</h2>
+    return html`
       <ul class="archived-tasks">
         ${this.archivedTasks().map(
           (t) => html`
@@ -21,6 +21,7 @@ export class Archive extends Component {
             </li>
           `
         )}
-      </ul> `;
+      </ul>
+    `;
   }
 }

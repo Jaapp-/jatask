@@ -1,19 +1,16 @@
 import { Component } from "./component";
 import { html } from "lit-html";
-import { saveTasks, tasks, TaskType } from "./task";
-import { router } from "./router";
+import { saveTasks, tasks, TaskType } from "../model/task";
+import { router } from "../router";
 
 export class HomePage extends Component {
   constructor() {
-    super("home");
+    super("JaTask");
     this.completedTasks = 3;
   }
 
   render() {
-    return html`
-      <h2 class="page-header">Open tasks</h2>
-      ${this.renderTasks()}
-    `;
+    return html` ${this.renderTasks()} `;
   }
 
   todoTasks() {

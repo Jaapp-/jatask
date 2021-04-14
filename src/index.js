@@ -1,2 +1,2 @@
-import "./date";
+import "./util/date";
 import "./app";

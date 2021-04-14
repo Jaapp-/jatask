@@ -1,5 +1,3 @@
-import { router } from "./router";
-
 export class BottomNav {
   /**
    * @param {String} selector

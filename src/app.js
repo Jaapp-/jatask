@@ -1,17 +1,20 @@
-import { HomePage } from "./home-page";
-import { getTaskById, Task, tasks } from "./task";
-import { EditTask } from "./edit-task";
-import { BottomNav } from "./bottom-nav";
-import { Archive } from "./archive";
-import { Settings } from "./settings";
+import { HomePage } from "./view/home-page";
+import { getTaskById, Task, tasks } from "./model/task";
+import { EditTask } from "./view/edit-task";
+import { BottomNav } from "./view/bottom-nav";
+import { Archive } from "./view/archive";
+import { Settings } from "./view/settings";
 import { router } from "./router";
 import { render } from "lit-html";
+import { TopBar } from "./view/top-bar";
 
 const content = document.querySelector("#content");
-const actionBar = new BottomNav("#bottom-nav");
+const topBar = new TopBar(".header");
+const bottomNav = new BottomNav("#bottom-nav");
 
 const showPage = (page) => {
-  actionBar.setActive(page.name);
+  bottomNav.setActive(page.name);
+  topBar.setTitle(page.name);
   render(page.render(), content);
 };
 
