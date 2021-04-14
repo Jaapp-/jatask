@@ -15,8 +15,6 @@
   "dependencies": {
     "director": "^1.2.8",
     "esbuild": "^0.8.29",
-    "gulp": "^4.0.2",
-    "gulp-esbuild": "^0.3.11",
     "lit-html": "^1.3.0",
     "prettier": "^2.2.1"
   }
