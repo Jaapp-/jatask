@@ -1,11 +1,21 @@
 body,
 html {
-  font-family: "Merriweather", serif;
   margin: 0;
   padding: 0;
+
+  --font-family: "Merriweather", serif;
+  font-family: var(--font-family);
+
   --text-primary: black;
   --text-secondary: rgba(0, 0, 0, 0.7);
-  --primary: #b80034;
+
+  --primary: #4e342e;
+  --primary-light: #7b5e57;
+  --primary-dark: #260e04;
+  --secondary: #00796b;
+  --secondary-light: #48a999;
+  --secondary-dark: #004c40;
+  background: #f2eeed;
 }
 
 * {
@@ -25,13 +35,17 @@ h6 {
   position: fixed;
   top: 0;
   height: 60px;
-  padding: 10px 40px;
+  padding: 10px 32px;
   background-color: var(--primary);
   width: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header h1 {
+  font-size: 18px;
 }
 
 .header a {
@@ -85,12 +99,15 @@ h6 {
 }
 
 .task-card {
-  margin: 4px 0;
+  margin: 1px 0;
+  padding: 6px;
   border-radius: 2px;
   cursor: pointer;
   display: flex;
   align-items: stretch;
   max-height: 100px;
+  background: white;
+  overflow: hidden;
 }
 
 .task-card .body {
@@ -109,7 +126,7 @@ h6 {
   width: 20px;
   margin: 10px;
   border: 2px solid #999;
-  border-radius: 50%;
+  border-radius: 3px;
   background-color: white;
   position: relative;
 }
@@ -121,21 +138,23 @@ h6 {
   right: 2px;
   top: 2px;
   bottom: 2px;
-  border-radius: 50%;
+  border-radius: 2px;
   background-color: #999;
 }
 
 .task-card.done {
-  transition: all 0.4s;
+  transition: all 0.4s ease-in;
   background: green !important;
   overflow: hidden;
   max-height: 0;
   margin: 0;
   opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .task-card:hover {
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
 }
 
 .task-card .title {
@@ -174,6 +193,7 @@ select {
 input,
 textarea,
 select {
+  font-family: var(--font-family);
   width: 100%;
 }
 
@@ -226,11 +246,12 @@ textarea {
 }
 
 #bottom-nav a.active span {
-  font-weight: bold;
   color: white;
+  font-weight: bold;
 }
 
 button {
+  font-family: var(--font-family);
   min-width: 70px;
   border: 2px solid #ccc;
   background-color: white;
@@ -241,20 +262,14 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background-color: var(--secondary);
   border: none;
   color: rgba(255, 255, 255, 0.98);
   font-weight: bold;
 }
 
 .btn-primary:hover {
-  background-color: #a1002e;
-}
-
-.btn-danger {
-  border: none;
-  font-weight: bold;
-  color: #b80034;
+  background-color: var(--secondary-dark);
 }
 
 .btn-danger:hover {
