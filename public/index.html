@@ -6,14 +6,32 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="icon" type="image/png" href="/img/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#b80034" />
   </head>
   <body>
     <div class="header">
-      <a href="/"><h1>JaTask</h1></a>
-      <a href="/create" class="create"> CREATE </a>
+      <h1>JaTask</h1>
+      <a href="/create" class="create">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          width="16"
+          height="16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.75 2a.75.75 0 01.75.75V7h4.25a.75.75 0 110 1.5H8.5v4.25a.75.75 0 11-1.5 0V8.5H2.75a.75.75 0 010-1.5H7V2.75A.75.75 0 017.75 2z"
+          ></path>
+        </svg>
+        CREATE
+      </a>
     </div>
     <div id="content"></div>
     <div id="bottom-nav">
@@ -72,7 +90,10 @@
     </div>
     <script src="/bundle.js"></script>
     <script>
-      if ("serviceWorker" in navigator) {
+      if (
+        "serviceWorker" in navigator &&
+        !location.host.startsWith("127.0.0.1")
+      ) {
         navigator.serviceWorker.register("/sw.js").catch((error) => {
           console.log("SW Registration failed with " + error);
         });

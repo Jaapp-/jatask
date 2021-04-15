@@ -1,15 +1,15 @@
 body,
 html {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    --text-primary: black;
-    --text-secondary: rgba(0, 0, 0, 0.7);
-    --primary: #b80034;
+  font-family: "Merriweather", serif;
+  margin: 0;
+  padding: 0;
+  --text-primary: black;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --primary: #b80034;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1,
@@ -18,247 +18,254 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+  margin: 0;
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    height: 60px;
-    padding: 8px 20px;
-    background-color: var(--primary);
-    width: 100%;
-    color: white;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  padding: 10px 40px;
+  background-color: var(--primary);
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header a {
-    text-decoration: none;
-    font-size: 12px;
-    color: white;
+  text-decoration: none;
+  font-size: 12px;
+  color: white;
 }
 
 .header a.create {
-    color: white;
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 8px;
+  color: white;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.header a.create svg {
+  fill: white;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
 }
 
 .header svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 #content {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: fixed;
-    top: 60px;
-    bottom: 60px;
-    left: 0;
-    right: 0;
-    padding: 12px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: fixed;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  padding: 12px;
 }
 
 .task-list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .page-header {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-secondary);
 }
 
 .task-card {
-    margin: 4px 0;
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    align-items: stretch;
-    max-height: 100px;
+  margin: 4px 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: stretch;
+  max-height: 100px;
 }
 
 .task-card .body {
-    flex: 1 1 0;
-    padding: 10px 0;
+  flex: 1 1 0;
+  padding: 10px 0;
 }
 
 .task-card .cb-c {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .task-card .cb {
-    height: 20px;
-    width: 20px;
-    margin: 10px;
-    border: 2px solid #999;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
+  height: 20px;
+  width: 20px;
+  margin: 10px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
 }
 
 .task-card.done .cb::after {
-    content: '';
-    position: absolute;
-    left: 2px;
-    right: 2px;
-    top: 2px;
-    bottom: 2px;
-    border-radius: 50%;
-    background-color: #999;
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background-color: #999;
 }
 
 .task-card.done {
-    transition: all 0.4s;
-    background: green !important;
-    overflow: hidden;
-    max-height: 0;
-    margin: 0;
-    opacity: 0;
+  transition: all 0.4s;
+  background: green !important;
+  overflow: hidden;
+  max-height: 0;
+  margin: 0;
+  opacity: 0;
 }
 
 .task-card:hover {
-    background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .task-card .title {
-    color: var(--text-primary);
-    font-size: 16px;
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-card .subtitle {
-    color: var(--text-secondary);
-    font-size: 14px;
-    margin-top: 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .form-group {
-    margin: 12px 0;
+  margin: 12px 0;
 }
 
 form label {
-    color: var(--text-secondary);
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: bold;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 select {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 6px 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
 }
 
 input,
 textarea,
 select {
-    width: 100%;
+  width: 100%;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
-.form-group input, .form-group textarea {
-    padding: 6px;
-    border: 1px solid #ccc;
+.form-group input,
+.form-group textarea {
+  padding: 6px;
+  border: 1px solid #ccc;
 }
 
 #bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    background: var(--primary);
-    height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: var(--primary);
+  height: 60px;
 }
 
 #bottom-nav a {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    text-decoration: none;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
 
 #bottom-nav svg {
-    fill: rgba(255, 255, 255, 0.7);
-    width: 24px;
-    height: 24px;
-    display: block;
+  fill: rgba(255, 255, 255, 0.7);
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 #bottom-nav a.active svg {
-    fill: white;
+  fill: white;
 }
 
 #bottom-nav a span {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
-    margin-top: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 #bottom-nav a.active span {
-    font-weight: bold;
-    color: white;
+  font-weight: bold;
+  color: white;
 }
 
 button {
-    min-width: 70px;
-    border: 2px solid #ccc;
-    background-color: white;
-    padding: 8px 16px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    cursor: pointer;
+  min-width: 70px;
+  border: 2px solid #ccc;
+  background-color: white;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-
 .btn-primary {
-    background-color: var(--primary);
-    border: none;
-    color: rgba(255, 255, 255, 0.98);
-    font-weight: bold;
+  background-color: var(--primary);
+  border: none;
+  color: rgba(255, 255, 255, 0.98);
+  font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #a1002e;
+  background-color: #a1002e;
 }
 
 .btn-danger {
-    border: none;
-    font-weight: bold;
-    color: #b80034;
+  border: none;
+  font-weight: bold;
+  color: #b80034;
 }
 
 .btn-danger:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn-danger:active {
-    background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .edit-form .buttons {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }

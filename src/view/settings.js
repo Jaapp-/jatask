@@ -13,7 +13,6 @@ export class Settings extends Component {
 
   render() {
     return html`
-      <p>Here you'll find the settings soon (TM)</p>
       <button @click="${() => this.createSampleTasks()}">
         Create sample tasks
       </button>
