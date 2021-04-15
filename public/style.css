@@ -15,6 +15,9 @@ html {
   --secondary: #00796b;
   --secondary-light: #48a999;
   --secondary-dark: #004c40;
+  --danger: #b71c1c;
+  --danger-light: #f05545;
+  --danger-dark: #7f0000;
   background: #f2eeed;
 }
 
@@ -49,6 +52,31 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+.card {
+  background: white;
+  margin: 1px;
+  border-radius: 3px;
+}
+
+.card.clickable {
+  cursor: pointer;
+}
+
+.card.clickable:hover {
+  background: #f9f9f9;
+}
+
+.card.clickable:active {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.list-heading {
+  color: var(--primary-dark);
+  font-weight: bold;
+  font-size: 14px;
+  margin: 12px 12px 6px;
 }
 
 .header {
@@ -179,7 +207,7 @@ h6 {
   background-color: #f9f9f9;
 }
 
-.task-card .title {
+.title {
   color: var(--text-primary);
   font-size: 16px;
   font-weight: bold;
@@ -187,7 +215,7 @@ h6 {
   text-overflow: ellipsis;
 }
 
-.task-card .subtitle {
+.subtitle {
   color: var(--text-secondary);
   font-size: 14px;
   margin-top: 8px;
@@ -237,6 +265,7 @@ textarea {
   display: flex;
   background: var(--primary);
   height: 60px;
+  z-index: 100;
 }
 
 #bottom-nav a {
@@ -281,25 +310,27 @@ button {
   text-transform: uppercase;
   border-radius: 2px;
   cursor: pointer;
-}
-
-.btn-primary {
-  background-color: var(--secondary);
-  border: none;
-  color: rgba(255, 255, 255, 0.98);
   font-weight: bold;
 }
 
-.btn-primary:hover {
+button.primary {
+  background-color: var(--secondary);
+  border: none;
+  color: rgba(255, 255, 255, 0.98);
+}
+
+button.primary:hover {
   background-color: var(--secondary-dark);
 }
 
-.btn-danger:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+button.danger {
+  background-color: var(--danger);
+  border: none;
+  color: rgba(255, 255, 255, 0.98);
 }
 
-.btn-danger:active {
-  background-color: rgba(0, 0, 0, 0.1);
+button.danger:hover {
+  background-color: var(--danger-dark);
 }
 
 .edit-form .buttons {
@@ -307,13 +338,36 @@ button {
   justify-content: space-between;
 }
 
-.archived-tasks .task-card {
-  padding: 2px 16px;
+.archived-tasks .card {
+  padding: 12px 16px;
 }
 
-.archived-tasks .date {
-  color: var(--primary-dark);
-  font-weight: bold;
-  font-size: 14px;
-  margin: 12px 12px 6px;
+.settings .card {
+  padding: 12px 16px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-buttons {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.settings-modal .card {
+  max-width: 100%;
+  width: 800px;
+  padding: 20px;
+  margin: 16px;
 }

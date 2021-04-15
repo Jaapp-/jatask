@@ -12,9 +12,10 @@ export class Archive extends Component {
    */
   archivedTasks() {
     const archiveTasks = tasks.filter((t) => t.isCompleted());
+    archiveTasks.sort((t1, t2) => {
+      return t2.createdAt.getTime() - t1.createdAt.getTime();
+    });
     return archiveTasks;
-    const length = archiveTasks.length;
-    return archiveTasks.slice(Math.max(0, length - 10));
   }
 
   archiveData() {
@@ -33,25 +34,21 @@ export class Archive extends Component {
 
   render() {
     return html`
-      <ul class="archived-tasks">
+      <div class="archived-tasks">
         ${this.archiveData().map((item) => this.renderItem(item))}
-      </ul>
+      </div>
     `;
   }
 
   renderItem(item) {
     if (item instanceof Task) {
       return html`
-        <li>
-          <div class="task-card">
-            <div class="body">
-              <div class="title">${item.name}</div>
-            </div>
-          </div>
-        </li>
+        <div class="card">
+          <div class="title">${item.name}</div>
+        </div>
       `;
     } else if (item instanceof Date) {
-      return html`<li class="date">${this.formatDate(item)}</li>`;
+      return html`<div class="list-heading">${this.formatDate(item)}</div>`;
     }
   }
 

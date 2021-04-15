@@ -57,11 +57,7 @@ ${this.task.description}</textarea
           >
             Delete task
           </button>
-          <button
-            class="btn-primary"
-            type="submit"
-            @click=${(e) => this.save(e)}
-          >
+          <button class="primary" type="submit" @click=${(e) => this.save(e)}>
             Save
           </button>
         </div>
