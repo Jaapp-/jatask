@@ -33,6 +33,15 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
 h1,
 h2,
 h3,
@@ -294,4 +303,15 @@ button {
 .edit-form .buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.archived-tasks .task-card {
+  padding: 2px 16px;
+}
+
+.archived-tasks .date {
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 14px;
+  margin: 12px 12px 6px;
 }
