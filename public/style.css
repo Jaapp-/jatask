@@ -75,11 +75,13 @@ h6 {
 }
 
 .header a.create {
-  color: white;
+  background: var(--secondary);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.9);
   display: block;
   font-size: 12px;
   font-weight: bold;
-  padding: 8px;
+  padding: 8px 12px;
 }
 
 .header a.create svg {
@@ -310,7 +312,7 @@ button {
 }
 
 .archived-tasks .date {
-  color: var(--secondary);
+  color: var(--primary-dark);
   font-weight: bold;
   font-size: 14px;
   margin: 12px 12px 6px;
