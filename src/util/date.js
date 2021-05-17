@@ -16,3 +16,14 @@ Date.prototype.getWeek = function () {
     )
   );
 };
+
+/**
+ * @param {Date} date
+ */
+Date.prototype.isSameDay = function (date) {
+  return (
+    this.getFullYear() === date.getFullYear() &&
+    this.getMonth() === date.getMonth() &&
+    this.getDay() === date.getDay()
+  );
+};

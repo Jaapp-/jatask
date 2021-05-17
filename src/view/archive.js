@@ -13,7 +13,9 @@ export class Archive extends Component {
   archivedTasks() {
     const archiveTasks = tasks.filter((t) => t.isCompleted());
     archiveTasks.sort((t1, t2) => {
-      return t2.createdAt.getTime() - t1.createdAt.getTime();
+      return (
+        t2.getLastCompletion().getTime() - t1.getLastCompletion().getTime()
+      );
     });
     return archiveTasks;
   }
@@ -23,8 +25,8 @@ export class Archive extends Component {
     const data = [];
     let date = null;
     for (const t of aTasks) {
-      if (date == null || t.createdAt.getDate() !== date.getDate()) {
-        date = t.createdAt;
+      if (date == null || !t.getLastCompletion().isSameDay(date)) {
+        date = t.getLastCompletion();
         data.push(date);
       }
       data.push(t);
@@ -53,6 +55,12 @@ export class Archive extends Component {
   }
 
   formatDate(date) {
-    return date.toLocaleDateString();
+    const options = {
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+    };
+
+    return date.toLocaleDateString("en-US", options);
   }
 }
