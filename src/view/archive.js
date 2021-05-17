@@ -1,6 +1,7 @@
 import { Component } from "./component";
 import { html } from "lit-html";
 import { Task, tasks } from "../model/task";
+import { router } from "../router";
 
 export class Archive extends Component {
   constructor() {
@@ -45,7 +46,7 @@ export class Archive extends Component {
   renderItem(item) {
     if (item instanceof Task) {
       return html`
-        <div class="card">
+        <div class="card" @click="${() => this.onClick(item)}">
           <div class="title">${item.name}</div>
         </div>
       `;
@@ -62,5 +63,12 @@ export class Archive extends Component {
     };
 
     return date.toLocaleDateString("en-US", options);
+  }
+
+  /**
+   * @param {Task} task
+   */
+  onClick(task) {
+    router.go("/tasks/edit/" + encodeURIComponent(task.id));
   }
 }

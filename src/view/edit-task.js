@@ -3,6 +3,11 @@ import { html } from "lit-html";
 import { router } from "../router";
 import { Component } from "./component";
 
+const COMPLETION_DATE_OPTIONS = {
+  dateStyle: "short",
+  timeStyle: "short",
+};
+
 export class EditTask extends Component {
   /**
    * @param {Task} task
@@ -10,7 +15,6 @@ export class EditTask extends Component {
    */
   constructor({ task, isNew = false }) {
     super();
-    console.log(task);
     this.task = task;
     this.isNew = isNew;
     this.name = "Edit " + task.name;
@@ -61,7 +65,33 @@ ${this.task.description}</textarea
             Save
           </button>
         </div>
+        ${this.renderCompletions()}
       </form>
+    `;
+  }
+
+  renderCompletions() {
+    if (this.task.completions.length === 0) return null;
+    return html`
+      <div class="completions">
+        <div class="list-heading">Completions</div>
+        ${this.task.completions.map((completion) =>
+          this.renderCompletion(completion)
+        )}
+      </div>
+    `;
+  }
+
+  /**
+   * @param {Date} completion
+   */
+  renderCompletion(completion) {
+    return html`
+      <div class="card">
+        <div class="title">
+          ${completion.toLocaleString("en-US", COMPLETION_DATE_OPTIONS)}
+        </div>
+      </div>
     `;
   }
 

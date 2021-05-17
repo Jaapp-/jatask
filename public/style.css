@@ -338,8 +338,17 @@ button.danger:hover {
   justify-content: space-between;
 }
 
+.completions {
+  margin-top: 24px;
+}
+
+.completions .card {
+  padding: 12px 16px;
+}
+
 .archived-tasks .card {
   padding: 12px 16px;
+  cursor: pointer;
 }
 
 .settings .card {
