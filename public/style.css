@@ -351,6 +351,10 @@ button.danger:hover {
   cursor: pointer;
 }
 
+.archived-tasks .list-heading {
+  font-size: 12px;
+}
+
 .settings .card {
   padding: 12px 16px;
 }
