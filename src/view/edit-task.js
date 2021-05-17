@@ -3,11 +3,6 @@ import { html } from "lit-html";
 import { router } from "../router";
 import { Component } from "./component";
 
-const COMPLETION_DATE_OPTIONS = {
-  dateStyle: "short",
-  timeStyle: "short",
-};
-
 export class EditTask extends Component {
   /**
    * @param {Task} task
@@ -89,7 +84,16 @@ ${this.task.description}</textarea
     return html`
       <div class="card">
         <div class="title">
-          ${completion.toLocaleString("en-US", COMPLETION_DATE_OPTIONS)}
+          ${completion.toLocaleDateString("en-US", {
+            weekday: "short",
+            day: "numeric",
+            month: "long",
+          })}
+          <span>
+            ${completion.toLocaleTimeString("en-US", {
+              timeStyle: "short",
+            })}
+          </span>
         </div>
       </div>
     `;

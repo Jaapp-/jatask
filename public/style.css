@@ -25,7 +25,6 @@ html {
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -344,6 +343,18 @@ button.danger:hover {
 
 .completions .card {
   padding: 12px 16px;
+}
+
+.completions .title {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.completions .title span {
+  color: var(--text-secondary);
+  font-size: 12px;
 }
 
 .archived-tasks .card {
