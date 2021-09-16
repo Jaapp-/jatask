@@ -2,6 +2,7 @@ import { Component } from "./component";
 import { html, render } from "lit-html";
 import { saveTasks, Task, tasks } from "../model/task";
 import { dismissModal, showModal } from "../util/modal";
+import { saveTheme, themes } from "../themes";
 
 const randName = () => {
   return Math.random().toString(36).substr(2, 5);
@@ -24,6 +25,19 @@ export class Settings extends Component {
         <div class="card clickable" @click="${() => this.clearAllData()}">
           <div class="title">Clear all data</div>
           <div class="subtitle">WARNING: Everything will be gone</div>
+        </div>
+        <div class="list-heading">Theme</div>
+        <div class="themes">
+          ${themes.map(
+            (theme) => html`
+              <div
+                class="card clickable"
+                @click="${() => this.setTheme(theme)}"
+              >
+                <div class="title">${theme["name"]}</div>
+              </div>
+            `
+          )}
         </div>
       </div>
     `;
@@ -70,5 +84,9 @@ export class Settings extends Component {
   clearAllDataConfirm() {
     tasks.length = 0;
     dismissModal();
+  }
+
+  setTheme(theme) {
+    saveTheme(theme);
   }
 }

@@ -46,7 +46,7 @@ export class Archive extends Component {
   renderItem(item) {
     if (item instanceof Task) {
       return html`
-        <div class="card" @click="${() => this.onClick(item)}">
+        <div class="card clickable" @click="${() => this.onClick(item)}">
           <div class="title">${item.name}</div>
         </div>
       `;

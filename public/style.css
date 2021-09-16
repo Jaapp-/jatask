@@ -1,5 +1,4 @@
-body,
-html {
+body {
   margin: 0;
   padding: 0;
 
@@ -19,6 +18,27 @@ html {
   --danger-light: #f05545;
   --danger-dark: #7f0000;
   background: #f2eeed;
+}
+
+body.theme-solarized-dark {
+  --text-primary: black;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+
+  background: #002b36;
+  --primary: #073642;
+  --primary-light: #cb4b16	;
+
+  --primary-dark: #586e75;
+  --secondary: #00796b;
+  --secondary-light: #48a999;
+  --secondary-dark: #004c40;
+  --danger: #b71c1c;
+  --danger-light: #f05545;
+  --danger-dark: #7f0000;
+}
+
+body.theme-solarized-light {
+
 }
 
 * {
@@ -68,7 +88,7 @@ h6 {
 }
 
 .card.clickable:active {
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+  background: #f3f3f3;
 }
 
 .list-heading {
@@ -359,7 +379,6 @@ button.danger:hover {
 
 .archived-tasks .card {
   padding: 12px 16px;
-  cursor: pointer;
 }
 
 .archived-tasks .list-heading {
