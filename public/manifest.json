@@ -1,7 +1,7 @@
 {
   "name": "JaTask",
   "short_name": "JaTask",
-  "theme_color": "#b80034",
+  "theme_color": "#4e342e",
   "background_color": "#fff",
   "display": "standalone",
   "orientation": "portrait",
