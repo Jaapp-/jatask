@@ -2,21 +2,38 @@
   "name": "JaTask",
   "short_name": "JaTask",
   "theme_color": "#4e342e",
-  "background_color": "#fff",
+  "background_color": "#f2eeed",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [
     {
-      "src": "/img/icon-512x512.png",
+      "src": "/img/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/img/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/img/icon-192x192.png",
+      "src": "/img/icon-192-maskable.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/img/icon-512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ]
 }
