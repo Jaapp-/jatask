@@ -19,8 +19,16 @@ export class EditTask extends Component {
     return html`
       <form class="edit-form" @submit="${(e) => this.save(e)}">
         <div class="form-group">
-          <div>
+          <div class="label-time">
             <label for="name">Name</label>
+            <span>${this.task.createdAt.toLocaleString('en-US', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false
+            })}</span>
           </div>
           <input
             type="text"

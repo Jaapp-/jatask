@@ -399,3 +399,14 @@ button.danger:hover {
   padding: 20px;
   margin: 16px;
 }
+
+.label-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label-time span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-top: -12px;
+}
